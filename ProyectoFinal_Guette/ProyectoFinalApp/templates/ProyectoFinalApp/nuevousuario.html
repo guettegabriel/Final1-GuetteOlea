@@ -1,0 +1,13 @@
+{% extends 'ProyectoFinalApp/base.html' %}
+{% load static %}
+
+{% block tituloPagina %}
+{{accion}} - Crear Usuario
+{% endblock %}
+
+{% block contenidoPagina %}
+    <form id='formulario' method='post' action="">{% csrf_token %}
+        <table> {{formulario}}</table>
+        <p> <input type="submit" value="Registrar" /></p>
+    </form>
+{% endblock %}

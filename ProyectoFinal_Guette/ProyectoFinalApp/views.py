@@ -10,6 +10,13 @@ from django.db.models import Q
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.decorators import login_required
+from django.template import RequestContext
+
 # from django.urls import reverse_lazy
 
 # Create your views here.
@@ -19,24 +26,38 @@ def inicio(request):
  
     return render(request,"ProyectoFinalApp/index.html")
 
-"""
-def buscar_comision(request):
-
+def nuevo_usuario(request):
     if request.method == "POST":
+        formulario = UserCreationForm(request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect("crear_usuario")
+    else:
+        formulario = UserCreationForm()
+    return render(request, 'ProyectoFinalApp/nuevousuario.html', {'formulario': formulario} )
 
-        comision = request.POST["comision"]
+
+    
+def login_user(request):
+    if request.method=='POST':
+        form = AuthenticationForm(data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None :
+                login(request,user)
+                return redirect('inicio')
+            else:
+                messages.error(request,"Invalid username or password")
+        else:
+            messages.error(request,"Invalid username or password")
+    return render(request, 'ProyectoFinalApp/ingresar.html',context={'form':AuthenticationForm()})
+            
+                     
+                
         
-        comisiones = Curso.objects.filter( Q(nombre__icontains=comision) | Q(comision__icontains=comision) ).values()
-        # User.objects.filter(Q(income__gte=5000) | Q(income__isnull=True))
 
-        return render(request,"ProyectoCoderApp/buscar_comision.html",{"comisiones":comisiones})
-
-    else: # get y otros
-
-        comisiones =  []  #Curso.objects.all()
-        
-        return render(request,"ProyectoCoderApp/buscar_comision.html",{"comisiones":comisiones})
-"""
 
 def Segas(request):
 

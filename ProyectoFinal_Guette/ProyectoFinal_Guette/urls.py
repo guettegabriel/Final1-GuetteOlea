@@ -20,4 +20,5 @@ from ProyectoFinalApp.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', include('ProyectoFinalApp.urls'))
+    
 ]
