@@ -1,14 +1,18 @@
 from django.urls import path
 
 
+
 from .views import *
 
 urlpatterns = [
     
-    path('', inicio, name="inicio"),
+    
+    
+    
     path('usuario/nuevo',nuevo_usuario, name='crear_usuario' ),
     path('usuario/login',login_user, name='login' ),
-    
+    path ('', inicio, name="inicio"),
+    path('logout/', logout_view, name='logout'),
 
     path('Sega/', Segas, name="Sega"),
     path('Sega/cargar_Sega/', crear_Sega , name="cargar_Sega"),

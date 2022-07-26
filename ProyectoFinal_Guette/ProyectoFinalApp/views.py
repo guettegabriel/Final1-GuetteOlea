@@ -17,14 +17,30 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
 
-# from django.urls import reverse_lazy
+from django.contrib.auth import logout
 
-# Create your views here.
+
+
+
 
 def inicio(request):
     
  
     return render(request,"ProyectoFinalApp/index.html")
+
+
+
+
+
+
+#logout
+
+def logout_view(request):
+    logout(request)
+    return redirect ('inicio')
+    
+    
+    
 
 def nuevo_usuario(request):
     if request.method == "POST":

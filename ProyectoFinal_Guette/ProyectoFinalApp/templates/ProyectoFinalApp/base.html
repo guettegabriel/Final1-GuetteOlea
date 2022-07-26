@@ -28,8 +28,15 @@
                         <li class="nav-item"><a class="nav-link" href="{% url 'Sega' %}">Sega</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'GameBoy' %}">GameBoy</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'Nes' %}">Nes</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'crear_usuario' %}">Registarse</a></li>
+                        
+                        
+                        {% if user.is_authenticated %}
+                        <li class="nav-item"><a class="nav-link active" aria-current="page">Hola: {{ user.get_username }}</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Salir</a></li>
+                        {% else %}
                         <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Ingresar</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'crear_usuario' %}">Registarse</a></li>
+                        {% endif %} 
                     </ul>
                 </div>
             </div>
