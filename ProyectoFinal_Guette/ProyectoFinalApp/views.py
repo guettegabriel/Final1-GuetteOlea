@@ -21,6 +21,13 @@ from django.contrib.auth import logout
 
 
 
+from django.contrib import messages
+
+
+from .forms import UpdateUserForm, UpdateProfileForm
+
+
+
 
 
 def inicio(request):
@@ -47,6 +54,10 @@ def nuevo_usuario(request):
         formulario = UserCreationForm(request.POST)
         if formulario.is_valid():
             formulario.save()
+            u = formulario.save()
+            profile = Profile.objects.create(user=u)
+            profile.save()
+            u.save()
             return redirect("crear_usuario")
     else:
         formulario = UserCreationForm()
@@ -72,7 +83,24 @@ def login_user(request):
             
                      
                 
+@login_required
+def profile(request):
+    if request.method == 'POST':
+        user_form = UpdateUserForm(request.POST, instance=request.user)
+        profile_form = UpdateProfileForm(request.POST, request.FILES, instance=request.user.profile)
         
+
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+           
+            messages.success(request, 'Actualizacion Correcta')
+            return redirect(to='users-profile')
+    else:
+        user_form = UpdateUserForm(instance=request.user)
+        profile_form = UpdateProfileForm(instance=request.user.profile)
+
+    return render(request, 'ProyectoFinalApp/profile.html', {'user_form': user_form, 'profile_form': profile_form})       
 
 
 def Segas(request):

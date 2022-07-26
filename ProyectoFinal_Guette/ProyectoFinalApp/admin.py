@@ -27,6 +27,6 @@ class NesAdmin(admin.ModelAdmin):
 admin.site.register(Sega, SegaAdmin)
 admin.site.register(GameBoy, GameBoyAdmin)
 admin.site.register(Nes, NesAdmin)
-
+admin.site.register(Profile)
 
 # admin, admin -> python manage.py createsuperuser

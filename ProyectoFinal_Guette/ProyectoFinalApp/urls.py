@@ -4,6 +4,8 @@ from django.urls import path
 
 from .views import *
 
+
+
 urlpatterns = [
     
     
@@ -13,6 +15,8 @@ urlpatterns = [
     path('usuario/login',login_user, name='login' ),
     path ('', inicio, name="inicio"),
     path('logout/', logout_view, name='logout'),
+    path('profile/', profile, name='users-profile'),
+    # path('profile/images', profile, name='profile_images'),
 
     path('Sega/', Segas, name="Sega"),
     path('Sega/cargar_Sega/', crear_Sega , name="cargar_Sega"),
@@ -47,4 +51,6 @@ urlpatterns = [
    
     
     
-]
+] 
+
+    
