@@ -16,6 +16,7 @@ urlpatterns = [
     path ('', inicio, name="inicio"),
     path('logout/', logout_view, name='logout'),
     path('profile/', profile, name='users-profile'),
+    path('about/', about, name='about'),
     # path('profile/images', profile, name='profile_images'),
 
     path('Sega/', Segas, name="Sega"),

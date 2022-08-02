@@ -36,6 +36,10 @@ def inicio(request):
  
     return render(request,"ProyectoFinalApp/index.html")
 
+def about(request):
+    
+ 
+    return render(request,"ProyectoFinalApp/about.html")
 
 
 
