@@ -10,6 +10,7 @@ class Sega(models.Model):
     nombre = models.CharField(max_length=30)
     genero = models.CharField(max_length=30) 
     año = models.DateField()
+    descripcion = models.CharField(max_length=300, default="Descripción")
 
 class GameBoy(models.Model):
 

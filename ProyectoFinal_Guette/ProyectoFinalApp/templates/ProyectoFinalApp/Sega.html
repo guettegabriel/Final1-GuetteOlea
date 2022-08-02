@@ -47,10 +47,10 @@ Sega - App Final
                                 <td>{{juego.nombre}}</td>
                                 <td>{{juego.genero}}</td>
                                 <td>{{juego.año}}</td>
-                                <td>{% comment %}
-                                    <a href="{% url 'editar_Sega' Segas.id %}" class="text-primary badge badge-primary text-decoration-none"> <i class="bi bi-pencil-square"></i> Editar</a>
-                                    <a href="{% url 'eliminar_Sega' Segas.id %}" class="text-danger badge badge-danger text-decoration-none"> <i class="bi bi-x-square"></i> Eliminar</a>
-                                   {% endcomment %}
+                                <td>{% if user.is_authenticated %}
+                                    <a href="{% url 'Sega_update' juego.id %}" class="text-primary badge badge-primary text-decoration-none"> <i class="bi bi-pencil-square"></i> Editar</a>
+                                    <a href="{% url 'Sega_delete' juego.id %}" class="text-danger badge badge-danger text-decoration-none"> <i class="bi bi-x-square"></i> Eliminar</a>
+                                    {% endif %} 
                                 </td>
                             </tr>
                         {% endfor %}

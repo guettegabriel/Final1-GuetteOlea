@@ -7,9 +7,10 @@ from .models import *
 from .forms import *
 from django.db.models import Q
 
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
@@ -163,6 +164,7 @@ def editar_Sega(request,Segas_id):
             Segas.nombre = info_Sega["nombre"]
             Segas.genero = info_Sega["genero"]
             Segas.año = info_Sega["año"]
+            Segas.descripcion = info_Sega["descripcion"]
             Segas.save()
 
             return redirect("Sega")
@@ -185,14 +187,14 @@ class SegaDetail(DetailView):
 class SegaCreate(CreateView):
 
     model = Sega
-    success_url = "/blog/Sega/list" # atenciooooooooon!!!! a la primer /
-    fields = ["nombre", "genero", "año"]
+    success_url = "/blog/Sega" # atenciooooooooon!!!! a la primer /
+    fields = ["nombre", "genero", "año", "descrpcion"]
 
 class SegaUpdate(UpdateView):
 
     model = Sega
-    success_url = "/blog/Sega/list" # atenciooooooooon!!!! a la primer /
-    fields = ["nombre", "genero", "año"]
+    success_url = "/blog/Sega" # atenciooooooooon!!!! a la primer /
+    fields = ["nombre", "genero", "año", "descripcion"]
 
 class SegaDelete(DeleteView):
 
@@ -281,19 +283,19 @@ class GameBoyDetail(DetailView):
 class GameBoyCreate(CreateView):
 
     model = GameBoy
-    success_url = "/blog/GameBoy/list" # atenciooooooooon!!!! a la primer /
+    success_url = "/blog/GameBoy" # atenciooooooooon!!!! a la primer /
     fields = ["nombre", "genero", "año"]
 
 class GameBoyUpdate(UpdateView):
 
     model = GameBoy
-    success_url = "/blog/GameBoy/list" # atenciooooooooon!!!! a la primer /
+    success_url = "/blog/GameBoy" # atenciooooooooon!!!! a la primer /
     fields = ["nombre", "genero", "año"]
 
 class GameBoyDelete(DeleteView):
 
     model = GameBoy
-    success_url = "/blog/GameBoy/list" # atenciooooooooon!!!! a la primer /
+    success_url = "/blog/GameBoy" # atenciooooooooon!!!! a la primer /
     
 def Ness(request):
     
