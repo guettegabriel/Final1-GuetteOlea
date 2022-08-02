@@ -50,10 +50,10 @@ Nes - App Final
                                 <td>{{juego.genero}}</td>
                                 <td>{{juego.año}}</td>
                                 
-                                {% comment %}
-                                    <a href="{% url 'editar_GameBoy' GameBoy.id %}" class="text-primary badge badge-primary text-decoration-none"> <i class="bi bi-pencil-square"></i> Editar</a>
-                                    <a href="{% url 'eliminar_GameBoy' GameBoy.id %}" class="text-danger badge badge-danger text-decoration-none"> <i class="bi bi-x-square"></i> Eliminar</a>
-                                    {% endcomment %}
+                                <td>{% if user.is_authenticated %}
+                                    <a href="{% url 'Nes_update' juego.id %}" class="text-primary badge badge-primary text-decoration-none"> <i class="bi bi-pencil-square"></i> Editar</a>
+                                    <a href="{% url 'Nes_delete' juego.id %}" class="text-danger badge badge-danger text-decoration-none"> <i class="bi bi-x-square"></i> Eliminar</a>
+                                    {% endif %} 
                                 </td>
                             </tr>
                         {% endfor %}
