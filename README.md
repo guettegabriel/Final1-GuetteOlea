@@ -1,9 +1,32 @@
-Final 1 - Guette - Olea
+Final Olea - Guette
 
-Index - Pantaalla Bienvenida: http://127.0.0.1:8000/blog/
-Desde el index se pueden navegar las distintas categorias, en las cuales se pueden visualizar los datos cargados en la BD, Cargar Nuevos Datos y realizar busquedas de cada categoria. Todo desde la misma pagina.
+Trabajo aun en progreso... Iremos completando en esta semana los pendientes y te avisamos por Wspp y Coder cuando este listo. Muchas Gracias Lucas!!
 
-Queda Pendiente agregar funcion de Editar/Eliminar desde cada Sección.
+Panta de Inicio: 127.0.0.1:8000
 
-Ponenos un 10, No te poongas la gorra Tincho (Gaby)
+CRUD Perfiles OK
+
+
+Registro	OK
+Login	OK
+Redireccion 	OK
+Estado de Login	OK
+
+Perfiles	OK
+Fotos de perfil	OK
+3 Clases	OK
+Pagina para crear contenido	OK
+Nav bar	OK
+Redireccionar el Home	OK
+
+Pendientes:
+
+Mensajes/Comentarios	
+About Me	
+Excel con 3 test	
+Readme	
+Fotos de models	
+Video COmentando el funcionamiento de la pagina.
+
+
  
