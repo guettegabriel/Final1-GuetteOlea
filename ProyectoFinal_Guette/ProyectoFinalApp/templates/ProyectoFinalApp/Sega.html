@@ -44,7 +44,7 @@ Sega - App Final
                         {% for juego in Segas %}
                             <tr>
                                 <th scope="row">{{forloop.counter}}</th>
-                                <td>{{juego.nombre}}</td>
+                                <td><a href="{% url 'Sega_detail' juego.id %}" class="text-primary badge badge-primary text-decoration-none">  {{juego.nombre}}</a></td>
                                 <td>{{juego.genero}}</td>
                                 <td>{{juego.año}}</td>
                                 <td>{% if user.is_authenticated %}

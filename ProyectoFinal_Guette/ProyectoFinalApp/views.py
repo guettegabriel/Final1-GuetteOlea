@@ -183,6 +183,14 @@ class SegaDetail(DetailView):
 
     model = Sega
     template_name = "ProyectoFinalApp/Sega_detail.html"
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super(SegaDetail, self).get_context_data(**kwargs)
+        # Get the blog from id and add it to the context
+        context['some_data'] = 'This is just some data'
+        return context
+       
+    
 
 class SegaCreate(CreateView):
 
