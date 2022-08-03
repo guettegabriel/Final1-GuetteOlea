@@ -1,6 +1,6 @@
 Final Olea - Guette
 
-Trabajo aun en progreso... Iremos completando en esta semana los pendientes y te avisamos por Wspp y Coder cuando este listo. Muchas Gracias Lucas!!
+Trabajo aun en progreso... Iremos completando en esta semana los pendientesMuchas Gracias Lucas!!
 
 Panta de Inicio: 127.0.0.1:8000
 
