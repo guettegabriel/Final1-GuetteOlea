@@ -4,7 +4,7 @@ Trabajo aun en progreso... Iremos completando en esta semana los pendientes y te
 
 Panta de Inicio: 127.0.0.1:8000
 
-CRUD Perfiles OK
+CRUD Perfiles Falla en el template para Leer los datos. Todavia no lo pudimos solucionar.
 
 
 Registro	OK
@@ -19,13 +19,11 @@ Pagina para crear contenido	OK
 Nav bar	OK
 Redireccionar el Home	OK
 
-Pendientes:
-
-Mensajes/Comentarios	
-About Me	
-Excel con 3 test	
-Readme	
-Fotos de models	
+Mensajes/Comentarios	- Agregados sin Funcionar
+About Me	 - OK
+Excel con 3 test	- OK
+Readme	- OK
+Fotos de models	- N/F
 Video COmentando el funcionamiento de la pagina.
 
 
