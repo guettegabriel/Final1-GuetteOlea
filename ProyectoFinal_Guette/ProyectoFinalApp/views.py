@@ -27,6 +27,11 @@ from django.contrib import messages
 
 from .forms import UpdateUserForm, UpdateProfileForm
 
+from django.views.generic import FormView
+from django.views.generic.detail import SingleObjectMixin
+from django.urls import reverse
+from .forms import CommentForm
+
 
 
 
@@ -182,16 +187,17 @@ class SegaList(ListView):
 
     model = Sega
     template_name = "ProyectoFinalApp/Segas_list.html"
+    context_object_name = 'Segas'
 
 class SegaDetail(DetailView):
 
     model = Sega
     template_name = "ProyectoFinalApp/Sega_detail.html"
+    context_object_name = 'Segas'
+
     def get_context_data(self, **kwargs):
-        # Call the base implementation first to get a context
-        context = super(SegaDetail, self).get_context_data(**kwargs)
-        # Get the blog from id and add it to the context
-        context['some_data'] = 'This is just some data'
+        context = super().get_context_data(**kwargs)
+        context['form'] = CommentForm()
         return context
        
     
@@ -407,3 +413,27 @@ class NesDelete(DeleteView):
 
 def base(request):
     return render(request,"ProyectoFinalApp/base.html",{})
+
+class SegaComment(SingleObjectMixin, FormView):
+    model = Sega
+    form_class = CommentForm
+    template_name = 'post_detail.html'
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        return super().post(request, *args, **kwargs)
+
+    def get_form_kwargs(self):
+        kwargs = super(SegaComment, self).get_form_kwargs()
+        kwargs['request'] = self.request
+        return kwargs
+
+    def form_valid(self, form):
+        comment = form.save(commit=False)
+        comment.post = self.object
+        comment.save()
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        post = self.get_object()
+        return reverse('Sega_detail', kwargs={'pk': post.pk}) + '#comments'

@@ -4,10 +4,17 @@ from .models import *
 
 # Register your models here.
 
+class CommentInline(admin.StackedInline):
+    model = Comment
+    extra = 0
+
 class SegaAdmin(admin.ModelAdmin):
 
     list_display = ('nombre', 'genero')
     search_fields = ('nombre', 'genero')
+    inlines = [
+        CommentInline,
+    ]
 
 
 class GameBoyAdmin(admin.ModelAdmin):
@@ -19,6 +26,7 @@ class NesAdmin(admin.ModelAdmin):
     
     list_display = ('nombre', 'genero')
     search_fields = ('nombre', 'genero')
+
 
 
 
